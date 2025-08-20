@@ -21,3 +21,6 @@ class GeneSerializer(serializers.ModelSerializer):
             "meandepth",
             "stdev",
         ]
+
+    def create(self, validated_data):
+        return super().create(validated_data)
