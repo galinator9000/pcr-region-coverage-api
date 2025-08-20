@@ -1,5 +1,5 @@
 from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("Hello from pcr index.")
+def results(request):
+    return HttpResponse("Hello from pcr results.")
