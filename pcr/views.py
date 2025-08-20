@@ -1,5 +1,9 @@
 from django.http import HttpResponse
+from rest_framework import viewsets
+from .models import Gene
+from .serializers import GeneSerializer
 
 
-def results(request):
-    return HttpResponse("Hello from pcr results.")
+class GeneViewSet(viewsets.ModelViewSet):
+    queryset = Gene.objects.all()
+    serializer_class = GeneSerializer

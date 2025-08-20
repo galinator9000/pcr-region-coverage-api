@@ -1,7 +1,10 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import GeneViewSet
 
-from . import views
+router = DefaultRouter()
+router.register(r"gene", GeneViewSet)
 
 urlpatterns = [
-    path("results/", views.results, name="results"),
+    path("", include(router.urls)),
 ]
