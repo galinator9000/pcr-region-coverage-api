@@ -19,7 +19,11 @@ class CustomGenePagination(PageNumberPagination):
                 "pagination": {
                     "current_item_count": len(data),
                     "current_page_number": self.page.number,
-                    "pagination_size": self.page_size,
+                    "pagination_size": (
+                        self.page_size
+                        if self.page_size
+                        else int(self.request.query_params["pagesize"])
+                    ),
                     "total_item_count": self.page.paginator.count,
                     "total_page_count": self.page.paginator.num_pages,
                 },
