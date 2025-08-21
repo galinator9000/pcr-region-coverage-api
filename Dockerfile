@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 8001
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
+CMD ["python", "-m", "uvicorn", "app.asgi:application", "--host", "0.0.0.0", "--port", "8001"]
